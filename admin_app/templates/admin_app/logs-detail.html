@@ -1,0 +1,82 @@
+{% extends "admin_app/admin.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<style>
+    body {
+        background: #ececec;
+    }
+
+    h1,
+    h2,
+    h3,
+    h5 {
+        border-bottom: 1px solid #ccc;
+        color: rgb(54, 140, 211);
+        padding-bottom: 5px
+    }
+
+    h4 {
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 5px
+    }
+
+    .container {
+        margin: auto;
+        width: 350px;
+        text-align: center;
+    }
+
+    .listFlex {
+        display: flex;
+        justify-content: center;
+    }
+
+    img {
+        width: 100%;
+    }
+
+    .content-section {
+        background: #ffffff;
+        padding: 5px 30px;
+        border: 0px solid #dddddd;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+</style>
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header"><span class="glyphicon glyphicon-user"></span> Log Detail</h1>
+    </div>
+</div>
+<div class="row">
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+    <div class="col-lg-12">
+        <h1> {{ object.name }}</h1>
+        <h3>Job Title &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Description&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Company</h3>
+        <h4>{{ object.job_title }} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{ object.description }}
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{ object.company }}</h4>
+        <h3>Network&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Jabber&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Email</h3>
+        <h4>{{ object.network }} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{ object.jabber }}
+            &emsp;&emsp;&emsp;&emsp;&emsp;{{ object.email }}</h4>
+        <h3>Date Created&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Internet&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Responsible</h3>
+        <h4>{{ object.date_created }} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{ object.Internet}}
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{ object.created_by }}</h4>
+        {% if object.created_by == user %}
+        <div class="form-group">
+            <a href="{% url 'admin_app:logs-update' logs.logsid %}"> <button class="btn btn-outline btn-info"
+                    type="submit">Edit</button></a>
+            <a href="{% url 'admin_app:logs-delete' logs.logsid %}"> <button class="btn btn-outline btn-danger"
+                    type="submit">Delete</button></a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+</div>
+
+{% endblock content %}

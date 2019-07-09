@@ -1,0 +1,23 @@
+{% extends "admin_app/admin.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header"><span class="glyphicon glyphicon-user"></span> User Profile</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<div class="content-section">
+    <div class="media">
+        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+
+        <!-- FORM HERE -->
+    </div>
+    <h1 class="page-header">{{ user.first_name }}
+        {{ user.last_name }}</h1>
+    <h3>{{ user.profile.job_title }}</h3>
+    <h3>{{ user.profile.department }}</h3>
+    <h3>{{ user.profile.company }}</h3>
+    <h3>{{ user.profile.office }}</h3>
+
+    {% endblock content %}

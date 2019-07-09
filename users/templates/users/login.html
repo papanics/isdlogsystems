@@ -1,0 +1,50 @@
+{% extends "users/user_base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<style>
+    .container {
+        position: relative;
+    }
+
+    .centered-element {
+
+        left: 100%;
+        margin-left: 300px;
+        margin-right: 200px;
+        top: 20%;
+        margin-top: -10px;
+    }
+</style>
+<div class="centered-element">
+    <div class="row">
+        <div class="col-lg-6">
+            <center>
+                <h1 class="page-header"><span class="glyphicon glyphicon-log-in"></span> Login</h1>
+            </center>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="content">
+        <div class="content-section">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="col-lg-6">
+                    <fieldset class="form-group">
+                        {{ form|crispy }}
+                    </fieldset>
+                    <div class="form-group">
+                        <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
+                        <small class="text-muted ml-2">
+                            <a href="{% url 'password_reset' %}">Forgot Password?</a>
+                        </small>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
