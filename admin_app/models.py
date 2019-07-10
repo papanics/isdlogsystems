@@ -51,8 +51,8 @@ class Createlogs(models.Model):
     description = models.CharField(max_length=100, blank=True)
     company = models.CharField(max_length=100, blank=True)
     remarks = models.TextField(null=True, default="New Account") 
-    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
-    work_order = models.CharField(max_length=100, null=True)
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
+    work_order = models.CharField(max_length=100, blank=True)
 
     def __str__(self):
         return self.name
