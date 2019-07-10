@@ -11,6 +11,15 @@ from django.contrib.auth.decorators import login_required
 from .models import Createlogs, Logs
 from django.contrib.auth.models import User
 from django.db.models import Count  
+from whitenoise.storage import CompressedManifestStaticFilesStorage
+
+class ErrorSquashingStorage(CompressedManifestStaticFilesStorage):
+    
+    def url(self, name, **kwargs):
+        try:
+            return super(ErrorSquashingStorage, self).url(name, **kwargs)
+        except ValueError:
+            return name
 
 @login_required
 def index(request):

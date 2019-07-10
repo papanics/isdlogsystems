@@ -42,23 +42,23 @@ class Createlogs(models.Model):
     logsid = models.AutoField(primary_key=True)
     date_created = models.DateTimeField(default=timezone.now)
     name = models.CharField(max_length=100)
-    job_title = models.CharField(max_length=100,null=True)
-    transactiontype = models.CharField(max_length=50,null=True)
-    network = models.CharField(max_length=20,null=True)
-    jabber = models.CharField(max_length=20,null=True)
-    email = models.CharField(max_length=50,null=True)
-    internet = models.CharField(max_length=20,null=True)
-    description = models.CharField(max_length=100,null=True)
-    company = models.CharField(max_length=100,null=True)
-    remarks = models.TextField(null=True)  # Field name made lowercase.
+    job_title = models.CharField(max_length=100, blank=True)
+    transactiontype = models.CharField(max_length=50, null=True)
+    network = models.CharField(max_length=20, blank=True)
+    jabber = models.CharField(max_length=20, blank=True)
+    email = models.CharField(max_length=50, blank=True)
+    internet = models.CharField(max_length=20, null=True,  default="None")
+    description = models.CharField(max_length=100, blank=True)
+    company = models.CharField(max_length=100, blank=True)
+    remarks = models.TextField(null=True, default="New Account") 
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
-    work_order = models.CharField(max_length=100,null=True)
+    work_order = models.CharField(max_length=100, null=True)
 
     def __str__(self):
         return self.name
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'admin_app_createlogs'
 
     def get_absolute_url(self):
