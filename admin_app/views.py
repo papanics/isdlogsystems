@@ -107,7 +107,7 @@ class LogsListView(ListView):
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
-        context['logs'] = Createlogs.objects.all().order_by('-logsid')[:6]
+        context['logs'] = Createlogs.objects.all()
         context['countlogs'] = User.objects.annotate(total_logs = Count('createlogs'))
         context['networks'] = Createlogs.objects.exclude(network__isnull=True).exclude(network__exact='').count()
         context['emails'] = Createlogs.objects.exclude(email__isnull=True).exclude(email__exact='').count()
@@ -125,7 +125,7 @@ class LogsDetailView(DetailView):
 class LogsCreateView(LoginRequiredMixin, CreateView):
     model = Createlogs
     template_name = 'admin_app/createlogs_form.html'
-    fields = ['name', 'job_title','transactiontype','network','jabber','email','internet','description','company','work_order','remarks']
+    fields = ['name', 'job_title','transactiontype','network','jabber','email','internet','description','company','work_order','date_created','remarks']
 
     def form_valid(self, form):
         form.instance.created_by = self.request.user
