@@ -11,7 +11,7 @@
         "internet": "",
         "description": "LUP-SPM OPE",
         "company": "LRSI",
-        "Remarks": "New Account",
+        "remarks": "New Account",
         "created_by_id": "34",
         "work_order": "0"
     },
@@ -27,7 +27,7 @@
         "internet": "",
         "description": "TGM-SPM RDU",
         "company": "LRSI",
-        "Remarks": "New Account",
+        "remarks": "New Account",
         "created_by_id": "34",
         "work_order": "0"
     },
@@ -43,7 +43,7 @@
         "internet": "",
         "description": "TGM-SPM RDU",
         "company": "LRSI",
-        "Remarks": "New Account",
+        "remarks": "New Account",
         "created_by_id": "34",
         "work_order": "0"
     },
@@ -59,7 +59,7 @@
         "internet": "",
         "description": "BBK-Retail Operations",
         "company": "LRSI",
-        "Remarks": "New Account",
+        "remarks": "New Account",
         "created_by_id": "34",
         "work_order": "0"
     },
@@ -75,7 +75,7 @@
         "internet": "Direct Internet",
         "description": "NHQ-IS ICT Infra",
         "company": "LPHI",
-        "Remarks": "Promoted",
+        "remarks": "Promoted",
         "created_by_id": "37",
         "work_order": "test123"
     },
@@ -91,7 +91,7 @@
         "internet": "",
         "description": "NHQ-FIN Accounting",
         "company": "LPHI",
-        "Remarks": "New Account",
+        "remarks": "New Account",
         "created_by_id": "34",
         "work_order": ""
     },
@@ -107,7 +107,7 @@
         "internet": "",
         "description": "PAL-CFI Production",
         "company": "CFI",
-        "Remarks": "New Account",
+        "remarks": "New Account",
         "created_by_id": "34",
         "work_order": ""
     },
@@ -123,7 +123,7 @@
         "internet": "",
         "description": "PEQ-SPM OPE",
         "company": "RET",
-        "Remarks": "New Account",
+        "remarks": "New Account",
         "created_by_id": "34",
         "work_order": ""
     },
@@ -139,7 +139,7 @@
         "internet": "",
         "description": "NHQ-RET IMD",
         "company": "RET",
-        "Remarks": "New Account",
+        "remarks": "New Account",
         "created_by_id": "34",
         "work_order": ""
     },
@@ -155,7 +155,7 @@
         "internet": "",
         "description": "MNL-DPS MDSG",
         "company": "DS",
-        "Remarks": "New Account",
+        "remarks": "New Account",
         "created_by_id": "34",
         "work_order": ""
     },
@@ -171,7 +171,7 @@
         "internet": "",
         "description": "TGM-DPT OPE",
         "company": "DS",
-        "Remarks": "New Account",
+        "remarks": "New Account",
         "created_by_id": "34",
         "work_order": ""
     },
@@ -187,7 +187,7 @@
         "internet": "",
         "description": "BJD-Retail OPE",
         "company": "RET",
-        "Remarks": "New Account",
+        "remarks": "New Account",
         "created_by_id": "34",
         "work_order": ""
     },
@@ -203,7 +203,7 @@
         "internet": "",
         "description": "PAL-CFI QA",
         "company": "CFI",
-        "Remarks": "New Account",
+        "remarks": "New Account",
         "created_by_id": "34",
         "work_order": ""
     },
@@ -219,7 +219,7 @@
         "internet": "",
         "description": "KAP-DPT OPE",
         "company": "DS",
-        "Remarks": "New Account",
+        "remarks": "New Account",
         "created_by_id": "34",
         "work_order": "WO-007222"
     },
@@ -235,7 +235,7 @@
         "internet": "",
         "description": "PAN-WHS RDU",
         "company": "RET",
-        "Remarks": "Reset password for email",
+        "remarks": "Reset password for email",
         "created_by_id": "34",
         "work_order": "WO-007230"
     },
@@ -251,7 +251,7 @@
         "internet": "",
         "description": "TGM-HMX RDU",
         "company": "HMX",
-        "Remarks": "Reset network password",
+        "remarks": "Reset network password",
         "created_by_id": "34",
         "work_order": "WO-007240"
     },
@@ -267,7 +267,7 @@
         "internet": "",
         "description": "NHQ-SPM PUR Fresh",
         "company": "RET",
-        "Remarks": "New Account",
+        "remarks": "New Account",
         "created_by_id": "34",
         "work_order": "WO-007293"
     },
@@ -283,7 +283,7 @@
         "internet": "None",
         "description": "test",
         "company": "test",
-        "Remarks": "test",
+        "remarks": "test",
         "created_by_id": "34",
         "work_order": "test"
     },
@@ -299,7 +299,7 @@
         "internet": "none",
         "description": "MDG-SPM RDU",
         "company": "RET",
-        "Remarks": "New Acccount",
+        "remarks": "New Acccount",
         "created_by_id": "34",
         "work_order": "WO-007158"
     },
@@ -315,7 +315,7 @@
         "internet": "None",
         "description": "TGM-DPT RDU",
         "company": "DS",
-        "Remarks": "New Account",
+        "remarks": "New Account",
         "created_by_id": "34",
         "work_order": "WO-007342"
     },
@@ -331,7 +331,7 @@
         "internet": "None",
         "description": "TGM-DPT RDU",
         "company": "DS",
-        "Remarks": "New Account",
+        "remarks": "New Account",
         "created_by_id": "34",
         "work_order": "WO-007342"
     },
@@ -347,7 +347,7 @@
         "internet": "None",
         "description": "TGM-DPT RDU",
         "company": "DS",
-        "Remarks": "New Account",
+        "remarks": "New Account",
         "created_by_id": "34",
         "work_order": "WO-007342"
     }
