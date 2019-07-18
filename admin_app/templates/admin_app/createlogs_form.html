@@ -3,37 +3,65 @@
 {% load crispy_forms_tags %}
 {% block content %}
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-12">
-            <h1 class="page-header"><span class="glyphicon glyphicon-user"></span> Create Logs</h1>
-        </div>
-        <!-- /.col-lg-12 -->
-    </div>
-    <!-- /.row -->
-    <div class="content-section">
+    <form method="post">
+        {% csrf_token %}
         <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header"><span class="glyphicon glyphicon-user"></span> Create Logs
+                </h1>
 
-            {% if messages %}
-            {% for message in messages %}
-            <div class="alert alert-{{ message.tags }}">
-                {{ message }}
             </div>
-            {% endfor %}
-            {% endif %}
-
-            <form method="POST">
-                {% csrf_token %}
-                <div class="col-lg-6">
-                    <fieldset class="form-group">
-                        {{ form|crispy }}
-                    </fieldset>
-                    <div class="form-group">
-                        <button class="btn btn-primary" type="submit">Save</button>
-                        <button class="btn btn-outline btn-primary" type="submit">Cancel</button>
-                    </div>
-            </form>
+            <!-- /.col-lg-12 -->
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">Save</button>
+                <button class="btn btn-outline btn-primary" type="submit">Cancel</button>
+            </div>
         </div>
-    </div>
+        <!-- /.row -->
+
+
+
+
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+                {{ form.name|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+                {{ form.job_title|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-3 mb-0">
+                {{ form.transactiontype|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-3 mb-0">
+                {{ form.network|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-3 mb-0">
+                {{ form.jabber|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-3 mb-0">
+                {{ form.email|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-3 mb-0">
+                {{ form.internet|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-4 mb-0">
+                {{ form.description|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-3 mb-0">
+                {{ form.company|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-2 mb-0">
+                {{ form.work_order|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-5 mb-0">
+                {{ form.date_created|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-7 mb-0">
+                {{ form.remarks|as_crispy_field }}
+            </div>
+
+        </div>
+    </form>
 </div>
 
 {% endblock %}
