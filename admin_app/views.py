@@ -21,56 +21,11 @@ class ErrorSquashingStorage(CompressedManifestStaticFilesStorage):
         except ValueError:
             return name
 
+
 @login_required
-def index(request):
-    email = Logs.objects.filter(transaction = 'email').count()
-    network = Logs.objects.filter(transaction = 'network').count()
-    jabber = Logs.objects.filter(transaction = 'jabber').count()
+def test(request):
+    return render(request, 'admin_app/test.html')
 
-    return render(request, 'admin_app/dashboard.html', {'email': email, 'network': network, 'jabber': jabber})
-
-def tables(request):
-    return render(request, 'admin_app/tables.html')
-
-def flot(request):
-    return render(request, 'admin_app/flot.html')
-
-def morris(request):
-    return render(request, 'admin_app/morris.html')
-
-def forms(request):
-    return render(request, 'admin_app/forms.html')
-
-def panels_wells(request):
-    return render(request, 'admin_app/panels_wells.html')
-
-def buttons(request):
-    return render(request, 'admin_app/buttons.html')
-
-def notifications(request):
-    return render(request, 'admin_app/notifications.html')
-
-def typography(request):
-    return render(request, 'admin_app/typography.html')
-
-def icons(request):
-    return render(request, 'admin_app/icons.html') 
-
-def grid(request):
-    return render(request, 'admin_app/grid.html')   
-
-def blank(request):
-    return render(request, 'admin_app/blank.html')
-
-def login(request):
-    return render(request, 'admin_app/login.html')    
-@login_required
-def create(request):
-    context = {
-        'logs': Logs.objects.filter(transaction='network').order_by('-logsid')[:10]
-    }
-   
-    return render(request, 'admin_app/create.html', context)
 @login_required
 def network(request):
     network = {
@@ -95,13 +50,8 @@ def email(request):
    
     return render(request, 'admin_app/table_email.html', email)
 
-def blank(request):
-    count = Logs.objects.count()
-   
-   
-    return render(request, 'admin_app/blank.html', {'count': count})
 
-class LogsListView(ListView):
+class LogsListView(LoginRequiredMixin, ListView):
     model = Createlogs
     template_name = 'admin_app/dashboard.html' 
 

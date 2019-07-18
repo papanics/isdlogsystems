@@ -11,7 +11,9 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+import json
 import django_heroku
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -80,13 +82,13 @@ WSGI_APPLICATION = "admin_proj.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.mysql",
-        "NAME": "account_logs",
-        "USER": "root",
-        "PASSWORD": "zxnmaskl32@12",
-        "HOST": "127.0.0.1",
-        "PORT": "",
-        "OPTIONS": {"init_command": "SET sql_mode='STRICT_TRANS_TABLES'"},
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'account_logs',
+        'USER': 'postgres',
+        'PASSWORD': 'zxnmaskl32@12',
+        'HOST': 'localhost',
+        'PORT': '5432',
+
     }
 }
 
