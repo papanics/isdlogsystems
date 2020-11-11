@@ -48,14 +48,21 @@
     <div id="wrapper">
 
         <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation"
+            style="margin-bottom: 0; background-color: #343a40">
+            <div class=" navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+                <style>
+                    a {
+                        color: #5f6a73;
+                        text-decoration: none;
+                    }
+                </style>
                 <a class="navbar-brand" href="index.html">
                     ISD - Infra Account Logs
                 </a>
@@ -314,6 +321,32 @@
 
                         <li>
                             <a href="{% url 'register' %}"><i class="fa fa-edit fa-fw"></i> Create User</a>
+                        </li>
+
+                        <li>
+                            <a href="{% url 'admin_app:logs-create' %}"><i class="fa fa-edit fa-fw"></i> Create Logs</a>
+                        </li>
+
+                        <li>
+                            <a href="{% url 'admin_app:logs-filter' %}"><i class="fa fa-search"></i> Filter & Search
+                                Logs</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="glyphicon glyphicon-briefcase"></i> My WorkPlace</a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#"><i class="fa fa-tasks"></i> Create Task</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-bell"></i> Assignments/Pendings</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="glyphicon glyphicon-check"></i> Accomplishments</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><i class="glyphicon glyphicon-edit"></i> Reports</a>
                         </li>
 
                     </ul>

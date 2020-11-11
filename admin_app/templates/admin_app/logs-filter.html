@@ -1,0 +1,162 @@
+{% load static %}
+<!doctype html>
+<html lang="en" style="margin-top: 5rem;">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <title>Filter · Logs</title>
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="{% url 'admin_app:index' %}">ISD - Infra Account Logs</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+
+    <main role="main" class="container">
+
+        <h3>Filter Logs</h3>
+        <form method="GET" action="{% url 'admin_app:logs-filter' %}">
+            <div class="form-row">
+                <div class="form-group col-12">
+                    <div class="input-group">
+                        <input class="form-control py-2 border-right-0 border" type="search" name="name_contains"
+                            placeholder="Name..." />
+                        <span class="input-group-append">
+                            <div class="input-group-text bg-transparent">
+                                <i class="fa fa-search"></i>
+                            </div>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-12">
+                    <div class="input-group">
+                        <input class="form-control py-2 border-right-0 border" type="search" name="work_order_exact"
+                            placeholder="Work Order exact..." />
+                        <span class="input-group-append">
+                            <div class="input-group-text bg-transparent">
+                                <i class="fa fa-search"></i>
+                            </div>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-12">
+                    <div class="input-group">
+                        <input class="form-control py-2 border-right-0 border" type="search" name="name_or_doer"
+                            placeholder="name or doer..." />
+                        <span class="input-group-append">
+                            <div class="input-group-text bg-transparent">
+                                <i class="fa fa-search"></i>
+                            </div>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-2 col-lg-2">
+                    <label for="publishDateMin">Publish date minimum</label>
+                    <input type="date" class="form-control" id="publishDateMin" name="date_min">
+                </div>
+                <div class="form-group col-md-2 col-lg-2">
+                    <label for="publishDateMax">Publish date maximum</label>
+                    <input type="date" class="form-control" id="publishDateMax" name="date_max">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="category">Transaction type</label>
+                    <select id="category" class="form-control" name="transaction">
+                        <option selected>Choose...</option>
+                        {% for tran in transactiontype %}
+                        <option value="{{ tran }}">{{ tran }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="category">Branch-Company Department</label>
+                    <select id="category" class="form-control" name="company">
+                        <option selected>Choose...</option>
+                        {% for company in Branch_Comp_Dept %}
+                        <option value="{{ company }}">{{ company}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="category">Category</label>
+                    <select id="category" class="form-control" name="category">
+                        <option selected>Choose...</option>
+                        {% for company in Branch_Comp_Dept %}
+                        <option value="{{ company }}">{{ company }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="reviewed" name="reviewed">
+                    <label class="form-check-label" for="reviewed">
+                        Reviewed
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="notReviewed" name="notReviewed">
+                    <label class="form-check-label" for="notReviewed">
+                        Not reviewed
+                    </label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+
+        <hr />
+        <div class="row">
+            <ul class="list-style-type: none">
+                {% for logs in queryset %}
+                <li>
+                    <b>{{ logs.name }}</b> <b>|</b>
+                    <span>
+                        {% for cat in journal.categories.all %}
+                        {{ cat }}
+                        {% endfor %}
+                    </span>
+                    <span>Transaction type: <b>{{ logs.transactiontype }}</b> <b>|</b></span>
+                    <span>Company: <b>{{ logs.company }}</b> <b>|</b></span>
+                    <span>Work Order #: <b>{{ logs.work_order }}</b> <b>|</b></span>
+                    <span>Responsible: <b>{{ logs.created_by.username }}</b> <b>|</b></span>
+                    <span>Date Created: <b>{{ logs.date_created }}</b></span>
+                </li>
+                <hr />
+                {% endfor %}
+            </ul>
+        </div>
+
+    </main><!-- /.container -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

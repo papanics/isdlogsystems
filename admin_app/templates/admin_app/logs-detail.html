@@ -45,9 +45,13 @@
 </style>
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header"><span class="glyphicon glyphicon-user"></span> Log Detail</h1>
+        <h1 class="page-header"><span class="glyphicon glyphicon-user"></span> Log Detail
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<a
+                href="{% url 'admin_app:logs-create' %}"><button type="button" class="btn btn-primary">Create
+                    Logs Again</button></a></h1>
     </div>
 </div>
+
 <div class="row">
     {% if messages %}
     {% for message in messages %}
@@ -67,6 +71,10 @@
         <h3>Date Created&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Internet&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Responsible</h3>
         <h4>{{ object.date_created }} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{ object.Internet}}
             &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{ object.created_by }}</h4>
+        <h3>Transaction Type</h3>
+        <h4>{{ object.transactiontype }}</h4>
+        <h3>Branch-Comp Dept</h3>
+        <h4>{{ object.Branch_Comp_Dept }}</h4>
         {% if object.created_by == user %}
         <div class="form-group">
             <a href="{% url 'admin_app:logs-update' logs.logsid %}"> <button class="btn btn-outline btn-info"

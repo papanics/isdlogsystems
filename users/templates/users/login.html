@@ -10,7 +10,7 @@
     .centered-element {
 
         left: 100%;
-        margin-left: 300px;
+        margin-left: 400px;
         margin-right: 200px;
         top: 20%;
         margin-top: -10px;
@@ -18,7 +18,7 @@
 </style>
 <div class="centered-element">
     <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-5">
             <center>
                 <h1 class="page-header"><span class="glyphicon glyphicon-log-in"></span> Login</h1>
             </center>
@@ -30,15 +30,12 @@
         <div class="content-section">
             <form method="POST">
                 {% csrf_token %}
-                <div class="col-lg-6">
+                <div class="col-lg-5">
                     <fieldset class="form-group">
                         {{ form|crispy }}
                     </fieldset>
                     <div class="form-group">
                         <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
-                        <small class="text-muted ml-2">
-                            <a href="{% url 'password_reset' %}">Forgot Password?</a>
-                        </small>
                     </div>
                 </div>
             </form>
