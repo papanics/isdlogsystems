@@ -1,1 +1,6 @@
-venv/
+venv
+*.pyc
+staticfiles
+.venv
+db.sqlite3
+admin_proj/*
