@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "venv\\Scripts\\python.exe",
+    "python.pythonPath": "d:\\Project_backup\\admin_proj\\env\\Scripts\\python.exe",
     "python.formatting.provider": "none",
     "workbench.iconTheme": "material-icon-theme",
 }
