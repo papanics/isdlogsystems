@@ -28,7 +28,7 @@ SECRET_KEY = "i+homa9*pwd&=zs3&mmviqmas^p2pei^3v4v3u2j==_d62+7ov"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'isdlogsystem.herokuapp.com/']
+ALLOWED_HOSTS = ['127.0.0.1', 'isdlogsystem.herokuapp.com']
 
 
 # Application definition
