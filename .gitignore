@@ -1,6 +1,1 @@
-env
-*.pyc
-staticfiles
-.env
-db.sqlite3
-admin_proj/*
+env/
