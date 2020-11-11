@@ -4,8 +4,7 @@ from .views import (
     LogsDetailView,
     LogsCreateView,
     LogsUpdateView,
-    LogsDeleteView,
-    LogsFilterView
+    LogsDeleteView
 
 
 )
@@ -21,7 +20,5 @@ urlpatterns = [
     path('network', views.network, name='network'),
     path('jabber', views.jabber, name='jabber'),
     path('email', views.email, name='email'),
-    path('test', views.test, name='tes'),
-    path("logs-filter", LogsFilterView, name="logs-filter"),
   
 ]

@@ -22,10 +22,6 @@ class Logs(models.Model):
     def __str__(self):
         return self.name
 
-
-
-
-
 class logsnew(models.Model):
     logsid = models.AutoField(db_column='logsID', primary_key=True)
     date = models.DateTimeField(db_column='Date', default=timezone.now)
@@ -42,42 +38,21 @@ class logsnew(models.Model):
     def __str__(self):
         return self.name
 
-class TblInternet(models.Model):
-    name = models.CharField(max_length=50, blank=True)
-    def __str__(self):
-        return self.name
-
-class TblJobTitle(models.Model):
-    name = models.CharField(max_length=50, blank=True, unique=True)
-    def __str__(self):
-        return self.name
-
-
-class TblBranchCompDept(models.Model):
-    name = models.CharField(max_length=50, null=True, blank=True)
-    def __str__(self):
-        return self.name 
-
-class TblTransactionType(models.Model):
-    name = models.CharField(max_length=50)
-    def __str__(self):
-        return self.name        
-
-
 class Createlogs(models.Model):
     logsid = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=120)
     date_created = models.DateTimeField(default=timezone.now)
-    remarks = models.TextField(null=True, default="New Account")
-    created_by = models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
-    work_order = models.CharField(max_length=50, blank=True)
+    name = models.CharField(max_length=100)
+    job_title = models.CharField(max_length=100, blank=True)
+    transactiontype = models.CharField(max_length=50, null=True)
     network = models.CharField(max_length=20, blank=True)
     jabber = models.CharField(max_length=20, blank=True)
     email = models.CharField(max_length=50, blank=True)
-    internet =  models.ForeignKey(TblInternet, on_delete=models.CASCADE)
-    job_title = models.ForeignKey(TblJobTitle, on_delete=models.CASCADE)
-    Branch_Comp_Dept =models.ForeignKey(TblBranchCompDept, on_delete=models.CASCADE)
-    transactiontype = models.ForeignKey(TblTransactionType, on_delete=models.CASCADE)
+    internet = models.CharField(max_length=20, null=True,  default="None")
+    description = models.CharField(max_length=100, blank=True)
+    company = models.CharField(max_length=100, blank=True)
+    remarks = models.TextField(null=True, default="New Account") 
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
+    work_order = models.CharField(max_length=100, blank=True)
 
     def __str__(self):
         return self.name
@@ -88,6 +63,7 @@ class Createlogs(models.Model):
 
     def get_absolute_url(self):
         return reverse('admin_app:logs-detail', kwargs={'pk': self.pk})
+
 
 
 
